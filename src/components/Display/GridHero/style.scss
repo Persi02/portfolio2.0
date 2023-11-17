@@ -1,0 +1,25 @@
+.grid {
+    @apply w-full h-screen;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    position: absolute;
+
+    .grid-one,
+    .grid-two,
+    .grid-three,
+    .grid-four {
+        border-bottom: 0.1px solid #686868;
+
+    }
+
+    .grid-one,
+    .grid-two,
+    .grid-three,
+    .grid-five,
+    .grid-six,
+    .grid-seven {
+        border-right: 0.1px solid #686868;
+    }
+}
