@@ -73,7 +73,7 @@ function HomePage() {
         wordAnimationRight('.sociaux', '.body_contact')
         wordAnimationRight('.sociaux', '.body_contact')
         opacAnimation('.form_contact', '.body_contact')
-        pinAnimation()
+
 
 
 
