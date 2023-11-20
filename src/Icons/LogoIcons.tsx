@@ -1,8 +1,11 @@
 import React from 'react'
+interface Props {
+    className: string
+}
 
-function LogoIcons() {
+function LogoIcons({ className }: Props) {
     return (
-        <svg width="84" height="74" viewBox="0 0 84 74" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+        <svg className={className} width="84" height="74" viewBox="0 0 84 74" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
             <rect width="84" height="74" fill="url(#pattern0)" />
             <defs>
                 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">

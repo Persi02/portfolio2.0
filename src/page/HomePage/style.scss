@@ -1,6 +1,6 @@
 .hero {
     @apply w-full h-screen flex items-center justify-center;
-    background: var(--primary);
+    background: var(--primary), #FFF;
     position: relative;
 
     .work {
@@ -82,7 +82,7 @@
 
 .body_about {
     @apply w-full h-screen py-12;
-    background: var(--primary);
+    background: var(--primary), #FFF;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     position: relative;
@@ -140,7 +140,7 @@
 
 .body_skills {
     @apply w-full h-screen py-12;
-    background: var(--primary);
+    background: var(--primary), #FFF;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     position: relative;
@@ -185,7 +185,7 @@
 
 .body_contact {
     @apply w-full h-screen relative flex items-center justify-center;
-    background: var(--primary);
+    background: var(--primary), #FFF;
 
     .wrap_sociaux {
         @apply flex w-full absolute pt-12 items-start justify-between;
@@ -221,6 +221,10 @@
 
     div {
         @apply flex gap-4;
+
+        svg {
+            cursor: pointer;
+        }
     }
 }
 
@@ -232,7 +236,8 @@
         @apply text-white
     }
 
-    .css-l4u8b9-MuiInputBase-root-MuiInput-root::before, .css-1rcvvn7-MuiInputBase-root-MuiInput-root:before {
+    .css-l4u8b9-MuiInputBase-root-MuiInput-root::before,
+    .css-1rcvvn7-MuiInputBase-root-MuiInput-root:before {
         border-bottom: 1px solid rgb(255 255 255 / 100%)
     }
 

@@ -1,12 +1,12 @@
 .head_section {
 
     @apply w-full h-screen flex items-center justify-center;
-    background: var(--secondary);
+    background: var(--secondary), #FFF;
 
     h2 {
         font-family: 'Poller One',
             sans-serif;
-        font-size: 128px;
+        font-size: 160px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;

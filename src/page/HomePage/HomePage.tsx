@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Header from '../../components/General/Header/Header';
 import './style.scss'
 import LogoIcons from '../../Icons/LogoIcons';
@@ -25,27 +25,158 @@ import TwitterIcon from '../../Icons/TwitterIcon';
 import GithubIcon from '../../Icons/GithubIcon';
 import LinkedinIcon from '../../Icons/LinkedinIcon';
 import { TextField } from '@mui/material';
+import gsap, { Power3 } from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+import { wordAnimation, wordAnimationLeft, wordAnimationRight, scaleAnimation, opacAnimation, pinAnimation } from '../../utils/animation';
+
+import axios from 'axios';
+import toast from 'react-hot-toast';
+
+gsap.registerPlugin(ScrollTrigger)
+
+interface Iuser {
+    name?: string,
+    email?: string,
+    message?: string,
+    subject?: string
+}
 
 
 function HomePage() {
+    const [user, setUser] = useState<Iuser>({});
+    const [email_i, setEmail] = useState("");
+    const [name_i, setName] = useState("");
+    const [subject_i, setSubjet] = useState("");
+    const [message_i, setMessage] = useState("");
+    let title: any = useRef(null)
+
+    let tl = gsap.timeline();
+
+    useEffect(() => {
+        gsap.fromTo('body', { height: '100vh', overflowY: 'hidden' }, { height: 'auto', overflowY: 'auto', delay: 5 })
+    }, [])
+    useEffect(() => {
+        const title1 = title.firstElementChild;
+        const title2 = title.lastElementChild;
+        tl.fromTo(title1, { x: -400, opacity: 0, ease: Power3.easeOut }, { x: 0, opacity: 1, ease: Power3.easeOut, duration: 1.5 }, 5).fromTo(title2, { x: 400, opacity: 0, ease: Power3.easeOut }, { x: 0, opacity: 1, duration: 1.3 }, 5).fromTo('.intro-name', { y: 44, opacity: 0 }, { y: 0, opacity: 1 }, 5).fromTo('.logo', { x: 300, opacity: 0 }, { x: 0, opacity: 1 }, 5).fromTo(['.header', '.wrap_btn-hero', '.wrap_button-scroll'], { opacity: 0 }, { opacity: 1, duration: 1 }, 5)
+
+
+    }, [tl])
+    useEffect(() => {
+        wordAnimation('.panel_about .about_title', '.panel_about')
+        wordAnimation('.panel_skills .about_title', '.panel_skills')
+        wordAnimation('.panel_contact .about_title', '.panel_contact')
+        wordAnimation('.first_about h3', '.body_about')
+        wordAnimation('.body_about p', '.body_about')
+        scaleAnimation('.second_about img', '.body_about')
+        wordAnimationLeft('.lieu', '.body_contact')
+        wordAnimationRight('.sociaux', '.body_contact')
+        wordAnimationRight('.sociaux', '.body_contact')
+        opacAnimation('.form_contact', '.body_contact')
+        pinAnimation()
+
+
+
+    }, [])
+
+    const handleChangeName = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setUser(
+            {
+                ...user,
+                [name]: value
+            }
+        )
+        setName(value)
+    }
+    const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setUser(
+            {
+                ...user,
+                [name]: value
+            }
+        )
+        setEmail(value)
+    }
+    const handleChangeSubject = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setUser(
+            {
+                ...user,
+                [name]: value
+            }
+        )
+        setSubjet(value)
+    }
+    const handleChangeMessage = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setUser(
+            {
+                ...user,
+                [name]: value
+            }
+        )
+        setMessage(value)
+    }
+    const serviceId: string = 'service_6xw6uo8'
+    const templateId: string = 'template_5p1tudh'
+    const publicKey: string = '6pMN3V5chFWqYFJTd'
+
+    const data = {
+        service_id: serviceId,
+        template_id: templateId,
+        user_id: publicKey,
+        template_params: {
+            ...user
+        }
+
+    }
+
+
+    const login = async (e: { preventDefault: () => void; }) => {
+        e.preventDefault()
+        if (!user.email || !user.name || !user.subject || !user.message) {
+            toast.error("veullez remplir tous les champs")
+        }
+        else {
+            try {
+                await axios.post("https://api.emailjs.com/api/v1.0/email/send", data);
+
+                setUser({})
+                setEmail('')
+                setMessage('')
+                setName('')
+                setSubjet('')
+
+                toast.success("Envoyé")
+
+            } catch (error) {
+                toast.error("information incorrect")
+                console.error(error)
+            }
+        }
+
+    }
+
     return (
         <>
-            <Header />
+            <Header className='header ' />
             <main>
-                <section className='hero'>
+                <section className='hero '>
                     <GridHero />
                     <div className='intro wrap'>
                         <div className='intro-name'>
-                            <h3>Persi</h3>
+                            <h3 >Persi</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sequi saepe maxime </p>
                         </div>
-                        <LogoIcons />
+                        <LogoIcons className='logo' />
                     </div>
                     <div className="work">
-                        <h1><span className='developer'>Developer</span><span className='front'>Front end</span></h1>
+                        <h1 ref={el => title = el}><span className='developer'>Developer</span><span className='front'>Front end</span></h1>
                         <div className="wrap_btn-hero">
                             <Button text='Contact Me' className='btn-lg' />
-                            <Button text='Get CV' className='btn-lg' />
+                            <Button text='Show CV' className='btn-lg' />
                         </div>
                     </div>
                     <div className='wrap_button-scroll'>
@@ -53,9 +184,10 @@ function HomePage() {
                         <ScrollIcon />
                     </div>
                 </section>
+
                 <section className='about'>
-                    <SectionTitle text='About' />
-                    <div className="body_about  wrap">
+                    <SectionTitle text='About' className='panel_about' />
+                    <div className="body_about  wrap ">
                         <GridBody />
                         <div className="first_about">
                             <h3>Hello I am Pérsi</h3>
@@ -80,8 +212,8 @@ function HomePage() {
                     </div>
                 </section>
                 <section className='myskills'>
-                    <SectionTitle text='My Skills' />
-                    <div className="body_skills  wrap">
+                    <SectionTitle text='My Skills' className='panel_skills' />
+                    <div className="body_skills  wrap test">
                         <GridBody />
                         <div className="first_skills">
                             <div className="design">
@@ -123,9 +255,11 @@ function HomePage() {
                         </div>
                     </div>
                 </section>
+
+
                 <section className='contact'>
-                    <SectionTitle text='Contact' />
-                    <div className="body_contact wrap ">
+                    <SectionTitle text='Contact' className='panel_contact' />
+                    <div className="body_contact wrap test">
                         <div className="wrap_sociaux wrap">
                             <div className="lieu">
                                 <div>
@@ -155,19 +289,18 @@ function HomePage() {
                             </div>
                         </div>
                         <form action="" className='form_contact'>
-                            <TextField label="Your Name" variant="standard" fullWidth />
-                            <TextField label="Your Email" variant="standard" fullWidth />
-                            <TextField label="Your Subject" variant="standard" fullWidth />
+                            <TextField label="Your Name" variant="standard" onChange={handleChangeName} name='name' fullWidth value={name_i} />
+                            <TextField label="Your Email" variant="standard" onChange={handleChangeEmail} name='email' fullWidth value={email_i} />
+                            <TextField label="Your Subject" variant="standard" fullWidth name='subject' onChange={handleChangeSubject} value={subject_i} />
                             <TextField
-
                                 label="Your message"
                                 multiline
                                 rows={5}
                                 variant="standard"
-                                fullWidth
+                                fullWidth name='message' onChange={handleChangeMessage} value={message_i}
                             />
                             <div>
-                                <Button text='Send' className='btn-xl' />
+                                <Button postUser={login} text='Send' className='btn-xl' />
                             </div>
                         </form>
                         <div className="hr">
@@ -177,8 +310,10 @@ function HomePage() {
                     </div>
                 </section>
             </main>
+
         </>
     )
 }
 
 export default HomePage
+

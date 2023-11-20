@@ -1,5 +1,6 @@
 .grid_body {
     @apply w-full h-screen;
+    pointer-events: none;
 
     position: absolute;
 

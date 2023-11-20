@@ -2,9 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './style.scss';
 
-function Header() {
+interface Props {
+    className: string
+}
+function Header({ className }: Props) {
     return (
-        <header className='wrap'>
+        <header className={`wrap ${className} `}>
             <nav className='menu-navigation'>
                 <Link className='nav-link' to=''>Home</Link>
                 <Link className='nav-link' to=''>About</Link>
