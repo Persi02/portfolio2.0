@@ -1,9 +1,7 @@
-@screen 2xl {
-    .head_section {
+ .head_section {
 
-        @apply w-full h-screen flex items-center justify-center;
-        background: var(--secondary);
+     @apply w-full h-screen flex items-center justify-center;
+     background: var(--secondary);
 
 
-    }
-}
+ }

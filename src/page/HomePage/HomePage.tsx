@@ -212,7 +212,7 @@ function HomePage() {
                         </div>
                     </div>
                 </section>
-                <section className='myskills'>
+                {/* <section className='myskills'>
                     <SectionTitle text='My Skills' className='panel_skills' />
                     <div className="body_skills  wrap test">
                         <GridBody />
@@ -309,7 +309,7 @@ function HomePage() {
                             <p>Portfolio@Pérsi2023</p>
                         </div>
                     </div>
-                </section>
+                </section>  */}
             </main>
 
         </>

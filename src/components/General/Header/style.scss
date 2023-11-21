@@ -1,23 +1,37 @@
-@screen 2xl {
-    header {
-        position: absolute;
-        bottom: 50px;
-        left: 0;
-        z-index: 2;
-    }
+ header {
+     position: absolute;
+     bottom: 18px;
+     left: 0;
+     z-index: 2;
+ }
 
-    .menu-navigation {
-        @apply flex text-black;
+ .menu-navigation {
+     @apply flex text-black;
 
-        flex-direction: column;
-        font-family: 'Roboto', sans-serif;
-        font-size: 20px;
-        font-weight: 500;
+     flex-direction: column;
+     font-family: 'Roboto', sans-serif;
+     font-size: 16px;
+     font-weight: 500;
 
-        .nav-link:hover {
-            color: var(--blue);
-        }
+     .nav-link {
+         font-family: 'Roboto', sans-serif;
+         font-size: 16px;
+         font-weight: 500;
+     }
+
+     .nav-link:hover {
+         color: var(--blue);
+     }
 
 
-    }
-}
+ }
+
+ @screen 2xl {
+     header {
+         bottom: 50px;
+     }
+
+     .menu-navigation {
+         font-size: 20px;
+     }
+ }

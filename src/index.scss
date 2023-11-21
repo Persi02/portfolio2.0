@@ -14,6 +14,63 @@ body {
     overflow-x: hidden;
 }
 
+.wrap {
+    padding: 0 16px;
+}
+
+.h1 {
+    @apply flex text-black flex-col;
+    gap: 10px;
+    font-family: 'Poller One', sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+    width: 1102px;
+}
+
+h2 {
+    font-family: 'Poller One',
+        sans-serif;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--primary);
+    text-align: center;
+}
+
+.first-h3 {
+    @apply text-black mb-3;
+    font-family: 'Poller One', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.second-h3 {
+    @apply text-black mb-3;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold
+}
+
+.body_text {
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: var(--secondary)
+}
+
+.body_textgm {
+    @apply text-black;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
 @screen 2xl {
 
     .wrap {
@@ -21,54 +78,37 @@ body {
     }
 
     .h1 {
-        @apply flex text-black flex-col;
-        font-family: 'Poller One', sans-serif;
-        font-weight: bold;
+        gap: 0px;
         font-size: 128px;
         line-height: normal;
         width: 1102px;
     }
 
     h2 {
-        font-family: 'Poller One',
-            sans-serif;
         font-size: 160px;
         font-style: normal;
-        font-weight: 400;
         line-height: normal;
-        color: var(--primary);
-        text-align: center;
     }
 
     .second-h3 {
-        @apply text-black mb-8;
-        font-size: 24px;
-        font-family: 'Roboto', sans-serif;
-        font-weight: bold
+        @apply mb-8;
+
     }
 
     .first-h3 {
-        @apply text-black mb-8;
-        font-family: 'Poller One', sans-serif;
+        @apply mb-8;
         font-size: 36px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
     }
 
     .body_textgm {
-        @apply text-black;
-        font-family: 'Poller One';
-        font-size: 24px;
-        font-style: normal;
+        font-family: 'Poller One', sans-serif;
         font-weight: 400;
-        line-height: normal;
+        font-size: 24px;
     }
 
     .body_text {
         font-size: 20px;
-        font-family: 'Roboto', sans-serif;
-        font-weight: 500
+
     }
 
     .body_about,
