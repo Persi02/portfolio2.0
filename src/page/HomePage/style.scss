@@ -2,6 +2,7 @@
 .hero {
     @apply w-full h-screen flex items-center justify-center relative;
     background: var(--primary), #FFF;
+    overflow-x: hidden;
 
     .work {
         padding-top: 20px;
