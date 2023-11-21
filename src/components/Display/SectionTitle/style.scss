@@ -1,16 +1,9 @@
-.head_section {
+@screen 2xl {
+    .head_section {
 
-    @apply w-full h-screen flex items-center justify-center;
-    background: var(--secondary), #FFF;
+        @apply w-full h-screen flex items-center justify-center;
+        background: var(--secondary);
 
-    h2 {
-        font-family: 'Poller One',
-            sans-serif;
-        font-size: 160px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        color: var(--blue-second);
-        text-align: center;
+
     }
 }

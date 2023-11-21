@@ -27,10 +27,11 @@ import LinkedinIcon from '../../Icons/LinkedinIcon';
 import { TextField } from '@mui/material';
 import gsap, { Power3 } from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-import { wordAnimation, wordAnimationLeft, wordAnimationRight, scaleAnimation, opacAnimation, pinAnimation } from '../../utils/animation';
+import { wordAnimation, wordAnimationLeft, wordAnimationRight, scaleAnimation, opacAnimation } from '../../utils/animation';
 
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import Text from '../../components/General/Text/Text';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -158,7 +159,6 @@ function HomePage() {
         }
 
     }
-
     return (
         <>
             <Header className='header ' />
@@ -167,20 +167,20 @@ function HomePage() {
                     <GridHero />
                     <div className='intro wrap'>
                         <div className='intro-name'>
-                            <h3 >Persi</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sequi saepe maxime </p>
+                            <h3 className='second-h3'>Persi</h3>
+                            <Text tag='p' text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sequi saepe maxime' color="#817474" className='body_text' />
                         </div>
                         <LogoIcons className='logo' />
                     </div>
                     <div className="work">
-                        <h1 ref={el => title = el}><span className='developer'>Developer</span><span className='front'>Front end</span></h1>
+                        <h1 className='h1' ref={el => title = el}><span className='developer'>Developer</span><span className='front'>Front end</span></h1>
                         <div className="wrap_btn-hero">
                             <Button text='Contact Me' className='btn-lg' />
                             <Button text='Show CV' className='btn-lg' />
                         </div>
                     </div>
                     <div className='wrap_button-scroll'>
-                        <p>Scroll</p>
+                        <p className='body_text'>Scroll</p>
                         <ScrollIcon />
                     </div>
                 </section>
@@ -190,22 +190,23 @@ function HomePage() {
                     <div className="body_about  wrap ">
                         <GridBody />
                         <div className="first_about">
-                            <h3>Hello I am Pérsi</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sequi saepe maxime pariatur rem non consequatur
+                            <h3 className='first-h3'>Hello I am Pérsi</h3>
+                            <Text tag='p' text=' Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sequi saepe maxime pariatur rem non consequatur
                                 unde quas suscipit ea placeat quia cumque laudantium assumenda dolore voLorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sequi saepe maxime pariatur rem non consequatur
-                                unde quas suscipit ea placeat quia cumque laudantium assumenda dolore voluptatum ut ullam! Enim?</p>
+                                unde quas suscipit ea placeat quia cumque laudantium assumenda dolore voluptatum ut ullam! Enim?' className='body_textgm' />
                         </div>
                         <div className="second_about">
                             <figure>
                                 <img src={profil} alt="profil" />
                             </figure>
                             <div className="info">
-                                <p>Email &nbsp;&nbsp;: <span>andriamananandroh@gmail.com</span></p>
-                                <p>Education &nbsp;&nbsp; :<span>Developer front JS ,
+
+                                <p className='body_textgm'>Email &nbsp;&nbsp;: <span>andriamananandroh@gmail.com</span></p>
+                                <p className='body_textgm'>Education &nbsp;&nbsp; :<span>Developer front JS ,
                                     SAHA Academique  (2023 )</span></p>
-                                <p>Diplôme &nbsp;&nbsp;:<span> Bacc +2 électronique informatique</span></p>
-                                <p>Phone &nbsp;&nbsp;:<span>+261346810380</span></p>
-                                <p>City &nbsp;&nbsp;:<span>Antananarivo/Madagascar</span></p>
+                                <p className='body_textgm'>Diplôme &nbsp;&nbsp;:<span> Bacc +2 électronique informatique</span></p>
+                                <p className='body_textgm'>Phone &nbsp;&nbsp;:<span>+261346810380</span></p>
+                                <p className='body_textgm'>City &nbsp;&nbsp;:<span>Antananarivo/Madagascar</span></p>
                             </div>
 
                         </div>
@@ -217,17 +218,17 @@ function HomePage() {
                         <GridBody />
                         <div className="first_skills">
                             <div className="design">
-                                <h3>UX/UI design</h3>
+                                <h3 className='second-h3 '>UX/UI design</h3>
                                 <img src={figma} alt='figma' />
                             </div>
                             <div className="outils">
-                                <h3>Outils</h3>
+                                <h3 className='second-h3 '>Outils</h3>
                                 <img src={git} alt='git' />
                             </div>
                         </div>
                         <div className="second_skills">
                             <div className="developer">
-                                <h3>Web developer</h3>
+                                <h3 className='second-h3 '>Web developer</h3>
                                 <div className="work_developer">
                                     <div className="wrap_skills">
                                         <img src={Html} alt='html' />
@@ -264,22 +265,22 @@ function HomePage() {
                             <div className="lieu">
                                 <div>
                                     <LieuIcon />
-                                    <p>Location  &nbsp;&nbsp;&nbsp;&nbsp;: Antananarivo/Madagascar</p>
+                                    <p className='body_text'>Location  &nbsp;&nbsp;&nbsp;&nbsp;: Antananarivo/Madagascar</p>
                                 </div>
                                 <div>
                                     <EmailIcon />
-                                    <p>Email  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:  andriamananandroh@gmail.com</p>
+                                    <p className='body_text'>Email  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:  andriamananandroh@gmail.com</p>
                                 </div>
                                 <div>
                                     <PhoneIcon />
-                                    <p>Phone &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : +261346810380</p>
+                                    <p className='body_text'>Phone &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : +261346810380</p>
                                 </div>
 
 
 
                             </div>
                             <div className="sociaux">
-                                <h3>Follow me on social media</h3>
+                                <h3 className='second-h3'>Follow me on social media</h3>
                                 <div>
                                     <FacebookIcon />
                                     <TwitterIcon />

@@ -6,8 +6,8 @@
 
 .btn-lg {
     padding: 12px;
-    background: white;
-    color: #121A2E;
+    background: var(--secondary);
+    color: var(--primary);
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
     font-weight: bold
@@ -15,8 +15,8 @@
 
 .btn-xl {
     @apply py-2 px-7;
-    background: white;
-    color: #121A2E;
+    background: var(--secondary);
+    color: var(--primary);
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
     font-weight: bold

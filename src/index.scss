@@ -3,17 +3,78 @@
 @tailwind utilities;
 
 :root {
-    --primary: linear-gradient(106deg, #131C33 0%, rgba(0, 0, 0, 0.96) 100%);
-    --secondary: linear-gradient(106deg, #131C33 0%, rgba(255, 255, 255, 0.00) 100%);
+    --primary: #FFFFFF;
+    --secondary: #000;
     --blue: #37D0F0;
-    --blue-second: #121A2E;
+    --blue-second: #000000;
 
-}
-
-.wrap {
-    padding: 0 60px;
 }
 
 body {
     overflow-x: hidden;
+}
+
+@screen 2xl {
+
+    .wrap {
+        padding: 0 60px;
+    }
+
+    .h1 {
+        @apply flex text-black flex-col;
+        font-family: 'Poller One', sans-serif;
+        font-weight: bold;
+        font-size: 128px;
+        line-height: normal;
+        width: 1102px;
+    }
+
+    h2 {
+        font-family: 'Poller One',
+            sans-serif;
+        font-size: 160px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        color: var(--primary);
+        text-align: center;
+    }
+
+    .second-h3 {
+        @apply text-black mb-8;
+        font-size: 24px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: bold
+    }
+
+    .first-h3 {
+        @apply text-black mb-8;
+        font-family: 'Poller One', sans-serif;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .body_textgm {
+        @apply text-black;
+        font-family: 'Poller One';
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .body_text {
+        font-size: 20px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500
+    }
+
+    .body_about,
+    .body_skills,
+    .body_contact {
+        background: var(--primary), #000;
+    }
+
 }
