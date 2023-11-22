@@ -72,7 +72,6 @@ function HomePage() {
         scaleAnimation('.second_about img', '.body_about')
         wordAnimationLeft('.lieu', '.body_contact')
         wordAnimationRight('.sociaux', '.body_contact')
-        wordAnimationRight('.sociaux', '.body_contact')
         opacAnimation('.form_contact', '.body_contact')
 
 
@@ -187,7 +186,7 @@ function HomePage() {
 
                 <section className='about'>
                     <SectionTitle text='About' className='panel_about' />
-                    <div className="body_about  wrap ">
+                    <div className="body_about wrap ">
                         <GridBody />
                         <div className="first_about">
                             <h3 className='first-h3'>Hello I am Pérsi</h3>
@@ -212,7 +211,7 @@ function HomePage() {
                         </div>
                     </div>
                 </section>
-                {/* <section className='myskills'>
+                <section className='myskills'>
                     <SectionTitle text='My Skills' className='panel_skills' />
                     <div className="body_skills  wrap test">
                         <GridBody />
@@ -300,7 +299,7 @@ function HomePage() {
                                 variant="standard"
                                 fullWidth name='message' onChange={handleChangeMessage} value={message_i}
                             />
-                            <div>
+                            <div className='wrap-button-form'>
                                 <Button postUser={login} text='Send' className='btn-xl' />
                             </div>
                         </form>
@@ -309,8 +308,8 @@ function HomePage() {
                             <p>Portfolio@Pérsi2023</p>
                         </div>
                     </div>
-                </section>  */}
-            </main>
+                </section>
+            </main >
 
         </>
     )

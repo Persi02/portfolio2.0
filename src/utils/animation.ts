@@ -38,7 +38,7 @@ const wordAnimationLeft = (classname: string, point: string) => {
 
 const wordAnimationRight = (classname: string, point: string) => {
     gsap.fromTo(classname, {
-        x: 300,
+        x: -300,
         opacity: 0,
     }, {
         x: 0,
