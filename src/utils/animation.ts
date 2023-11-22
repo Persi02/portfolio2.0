@@ -38,7 +38,7 @@ const wordAnimationLeft = (classname: string, point: string) => {
 
 const wordAnimationRight = (classname: string, point: string) => {
     gsap.fromTo(classname, {
-        x: -300,
+        x: 300,
         opacity: 0,
     }, {
         x: 0,
@@ -53,21 +53,7 @@ const wordAnimationRight = (classname: string, point: string) => {
         }
     })
 }
-const scaleAnimation = (classname: string, point: string) => {
-    gsap.fromTo(classname, {
-        scale: 0,
-    }, {
-        scale: 1.5,
-        duration: 1,
-        scrollTrigger: {
-            trigger: point,
-            start: 'top 30%',
-            end: 'top top',
-            toggleActions: 'play none none reverse',
-            pinSpacing: false
-        }
-    })
-}
+
 
 const opacAnimation = (classname: string, point: string) => {
     gsap.fromTo(classname, {
@@ -187,4 +173,4 @@ const pinAnimation = () => {
     })
 }
 
-export { wordAnimation, wordAnimationLeft, wordAnimationRight, scaleAnimation, opacAnimation, pinAnimation }
+export { wordAnimation, wordAnimationLeft, wordAnimationRight, opacAnimation, pinAnimation }

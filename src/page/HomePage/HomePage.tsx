@@ -27,7 +27,7 @@ import LinkedinIcon from '../../Icons/LinkedinIcon';
 import { TextField } from '@mui/material';
 import gsap, { Power3 } from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-import { wordAnimation, wordAnimationLeft, wordAnimationRight, scaleAnimation, opacAnimation } from '../../utils/animation';
+import { wordAnimation } from '../../utils/animation';
 
 import axios from 'axios';
 import toast from 'react-hot-toast';
@@ -69,10 +69,10 @@ function HomePage() {
         wordAnimation('.panel_contact .about_title', '.panel_contact')
         wordAnimation('.first_about h3', '.body_about')
         wordAnimation('.body_about p', '.body_about')
-        scaleAnimation('.second_about img', '.body_about')
-        wordAnimationLeft('.lieu', '.body_contact')
-        wordAnimationRight('.sociaux', '.body_contact')
-        opacAnimation('.form_contact', '.body_contact')
+
+        wordAnimation('.lieu', '.body_contact')
+        wordAnimation('.sociaux', '.body_contact')
+        wordAnimation('.form_contact', '.body_contact')
 
 
 
@@ -160,8 +160,9 @@ function HomePage() {
     }
     return (
         <>
-            <Header className='header ' />
+
             <main>
+                <Header className='header ' />
                 <section className='hero '>
                     <GridHero />
                     <div className='intro wrap'>
@@ -184,7 +185,7 @@ function HomePage() {
                     </div>
                 </section>
 
-                <section className='about'>
+                <section className='about' id="about">
                     <SectionTitle text='About' className='panel_about' />
                     <div className="body_about wrap ">
                         <GridBody />
@@ -211,7 +212,7 @@ function HomePage() {
                         </div>
                     </div>
                 </section>
-                <section className='myskills'>
+                <section className='myskills' id='mySkills'>
                     <SectionTitle text='My Skills' className='panel_skills' />
                     <div className="body_skills  wrap test">
                         <GridBody />
@@ -257,7 +258,7 @@ function HomePage() {
                 </section>
 
 
-                <section className='contact'>
+                <section className='contact' id="contact">
                     <SectionTitle text='Contact' className='panel_contact' />
                     <div className="body_contact wrap test">
                         <div className="wrap_sociaux wrap">

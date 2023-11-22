@@ -75,6 +75,7 @@
         figure {
             width: 110px;
             height: 110px;
+            transform: scale(1.5);
 
             img {
                 border-radius: 50%;
@@ -101,6 +102,11 @@
 
     .design {
         margin-bottom: 20px;
+
+        img {
+            width: 80px;
+            height: 80px;
+        }
     }
 
     .wrap_skills {
@@ -130,12 +136,17 @@
     @apply w-full relative py-10;
 
     .wrap_sociaux {
-        @apply flex w-full flex-col items-center gap-8 justify-between;
+        @apply w-full;
+
+        div {
+            margin-bottom: 0;
+        }
+
     }
 }
 
 .lieu {
-    @apply flex flex-col gap-3;
+    @apply flex flex-col gap-3 mb-5;
 
     div {
         @apply flex items-center gap-3;
@@ -298,12 +309,17 @@
         @apply flex items-center justify-center h-screen;
 
         .wrap_sociaux {
-            @apply absolute pt-12 flex-row items-start top-0 left-0 gap-0;
+            @apply flex absolute pt-12 flex-row items-start top-0 left-0 gap-0 justify-between;
+
+            div {
+                margin-bottom: 0;
+            }
+
         }
     }
 
     .lieu {
-        @apply flex flex-col gap-3;
+        @apply flex flex-col gap-3 mb-0;
 
         div {
             @apply flex items-center gap-3;
