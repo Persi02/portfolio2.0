@@ -32,6 +32,9 @@ import { wordAnimation } from '../../utils/animation';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import Text from '../../components/General/Text/Text';
+import { Link } from 'react-scroll';
+import { NavLink } from 'react-router-dom';
+
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -175,8 +178,15 @@ function HomePage() {
                     <div className="work">
                         <h1 className='h1' ref={el => title = el}><span className='developer'>Developer</span><span className='front'>Front end</span></h1>
                         <div className="wrap_btn-hero">
-                            <Button text='Contact Me' className='btn-lg' />
-                            <Button text='Show CV' className='btn-lg' />
+                            <Link className='nav-link' to='contact'
+                                smooth={true}
+                                duration={500} >
+                                <Button text='Contact Me' className='btn-lg' />
+                            </Link>
+                            <NavLink to='https://zaho.io/iam/andriamananandro-herinjaka-1691998604593'>
+                                <Button text='Show CV' className='btn-lg' />
+                            </NavLink>
+
                         </div>
                     </div>
                     <div className='wrap_button-scroll'>
