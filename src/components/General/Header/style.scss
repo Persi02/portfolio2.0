@@ -1,6 +1,6 @@
  header {
      position: absolute;
-     bottom: 18px;
+     bottom: 3%;
      left: 0;
      z-index: 2;
  }
@@ -14,7 +14,7 @@
 
      .nav-link {
          font-family: 'Roboto', sans-serif;
-         font-size: 16px;
+         font-size: 14px;
          font-weight: 500;
          cursor: pointer;
      }
@@ -24,6 +24,14 @@
      }
 
 
+ }
+
+ @screen md {
+     .menu-navigation {
+         .nav-link {
+             font-size: 16px;
+         }
+     }
  }
 
  @screen 2xl {

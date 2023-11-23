@@ -14,10 +14,3 @@
         border-right: 1px solid #686868
     }
 }
-
-@screen 2xl {
-    .grid_body {
-        @apply h-screen;
-
-    }
-}

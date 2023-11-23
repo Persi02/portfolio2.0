@@ -23,7 +23,7 @@
     .wrap_button-scroll {
         @apply flex items-center flex-col fixed;
         gap: 10px;
-        bottom: 18px;
+        bottom: 3%;
         right: 16px;
 
 
@@ -46,7 +46,7 @@
 
     .intro {
         position: absolute;
-        top: 50px;
+        top: 3%;
         left: 0;
         width: 100%;
         @apply flex justify-between items-start;
@@ -136,7 +136,7 @@
     @apply w-full relative py-10;
 
     .wrap_sociaux {
-        @apply w-full;
+        @apply flex flex-col w-full;
 
         div {
             margin-bottom: 0;
@@ -158,7 +158,12 @@
 }
 
 .sociaux {
-    @apply flex flex-col items-center gap-8;
+    @apply flex flex-col gap-8;
+    padding-top: 20px;
+
+    h3 {
+        display: none
+    }
 
     div {
         @apply flex gap-4;
@@ -214,22 +219,18 @@
     }
 }
 
-@screen 2xl {
+@screen sm {
     .hero {
-
-        .wrap_btn-hero {
-            margin-top: 0;
-
-            button {
-                margin-bottom: 20px;
+        .intro {
+            &-name {
+                max-width: 200px;
             }
         }
+    }
+}
 
-        .wrap_button-scroll {
-            bottom: 50px;
-            right: 60px;
-        }
-
+@screen md {
+    .hero {
         h1 {
             .developer {
                 text-align: start;
@@ -241,9 +242,26 @@
         }
 
 
+    }
+}
+
+@screen lg {
+    .hero {
+        .wrap_btn-hero {
+            margin-top: 0;
+
+            button {
+                margin-bottom: 20px;
+            }
+        }
+
+        .wrap_button-scroll {
+            right: 50px;
+        }
+
         .intro {
             &-name {
-                max-width: 313px;
+                max-width: 230px;
             }
         }
     }
@@ -282,10 +300,8 @@
         }
     }
 
-
-
     .body_skills {
-        @apply h-screen py-12;
+        @apply py-12;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
 
@@ -306,10 +322,12 @@
     }
 
     .body_contact {
-        @apply flex items-center justify-center h-screen;
+        @apply flex items-center justify-center;
+        padding: 20% 0;
+
 
         .wrap_sociaux {
-            @apply flex absolute pt-12 flex-row items-start top-0 left-0 gap-0 justify-between;
+            @apply absolute pt-12 flex-row items-start top-0 left-0 gap-0 justify-between;
 
             div {
                 margin-bottom: 0;
@@ -331,7 +349,11 @@
     }
 
     .sociaux {
-        @apply flex flex-col items-center gap-8;
+        @apply flex flex-col items-center gap-4 pt-0;
+
+        h3 {
+            display: block;
+        }
 
         div {
             @apply flex gap-4;
@@ -358,6 +380,7 @@
 
 
         button {
+            position: inherit;
             margin-left: 100%;
             transform: translateX(-100%);
         }
@@ -376,4 +399,30 @@
             text-align: center;
         }
     }
+}
+
+@screen 2xl {
+    .hero {
+        .wrap_btn-hero {
+            margin-top: 0;
+
+            button {
+                margin-bottom: 20px;
+            }
+        }
+
+        .wrap_button-scroll {
+            bottom: 50px;
+            right: 60px;
+        }
+
+        .intro {
+            &-name {
+                max-width: 313px;
+            }
+        }
+    }
+
+
+
 }

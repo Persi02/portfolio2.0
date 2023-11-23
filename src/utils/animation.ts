@@ -12,7 +12,7 @@ const wordAnimation = (classname: string, point: string) => {
         duration: 1,
         scrollTrigger: {
             trigger: point,
-            start: 'top 30%',
+            start: 'top 70%',
             end: 'top top',
             toggleActions: 'play none none reverse',
             pinSpacing: false
@@ -29,7 +29,7 @@ const wordAnimationLeft = (classname: string, point: string) => {
         duration: 1,
         scrollTrigger: {
             trigger: point,
-            start: 'top 50%',
+            start: 'top 70%',
             end: 'top top',
             toggleActions: 'play none none reverse'
         }
@@ -46,7 +46,7 @@ const wordAnimationRight = (classname: string, point: string) => {
         duration: 1,
         scrollTrigger: {
             trigger: point,
-            start: 'top 50%',
+            start: 'top 70%',
             end: 'top top',
             toggleActions: 'play none none reverse',
             pinSpacing: false
@@ -63,7 +63,7 @@ const opacAnimation = (classname: string, point: string) => {
         duration: 1,
         scrollTrigger: {
             trigger: point,
-            start: 'top 50%',
+            start: 'top 70%',
             end: 'top top',
             toggleActions: 'play none none reverse',
             pinSpacing: false
