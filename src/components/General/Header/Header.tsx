@@ -1,15 +1,25 @@
-import React from 'react'
 import { Link } from 'react-scroll';
 import './style.scss';
+import { useEffect, useRef } from 'react';
+import { navAnimation } from '../../../utils/animation';
 
 interface Props {
-    className: string
+    className: string,
+
+
 }
+
 function Header({ className }: Props) {
+
+    let header: any = useRef(null);
+
+    useEffect(() => {
+        navAnimation(header);
+    }, [])
     return (
-        <header className={`wrap ${className} `}>
+        <header ref={el => header = el} className={`wrap ${className} `}>
             <nav className='menu-navigation'>
-                <Link className='nav-link' to="/"
+                <Link className='nav-link' to="hero"
                     smooth={true}
                     duration={500} >Home</Link>
                 <Link className='nav-link' to='about'

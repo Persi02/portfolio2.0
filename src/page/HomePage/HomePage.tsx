@@ -27,7 +27,7 @@ import LinkedinIcon from '../../Icons/LinkedinIcon';
 import { TextField } from '@mui/material';
 import gsap, { Power3 } from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-import { wordAnimation } from '../../utils/animation';
+import { wordAnimation, buttonScrollAnim, navAnimation } from '../../utils/animation';
 
 import axios from 'axios';
 import toast from 'react-hot-toast';
@@ -53,6 +53,10 @@ function HomePage() {
     const [subject_i, setSubjet] = useState("");
     const [message_i, setMessage] = useState("");
     let title: any = useRef(null)
+    let about: any = useRef(null);
+
+
+
 
     let tl = gsap.timeline();
 
@@ -72,10 +76,13 @@ function HomePage() {
         wordAnimation('.panel_contact .about_title', '.panel_contact')
         wordAnimation('.first_about h3', '.body_about')
         wordAnimation('.body_about p', '.body_about')
+        buttonScrollAnim()
 
         wordAnimation('.lieu', '.body_contact')
         wordAnimation('.sociaux', '.body_contact')
         wordAnimation('.form_contact', '.body_contact')
+        // navAnimation(header)
+
 
 
 
@@ -165,8 +172,8 @@ function HomePage() {
         <>
 
             <main>
-                <Header className='header ' />
-                <section className='hero '>
+                <Header className=' header' />
+                <section className='hero ' id='hero'>
                     <GridHero />
                     <div className='intro wrap'>
                         <div className='intro-name'>
@@ -195,7 +202,7 @@ function HomePage() {
                     </div>
                 </section>
 
-                <section className='about' id="about">
+                <section className='about' ref={about} id="about">
                     <SectionTitle text='About' className='panel_about' />
                     <div className="body_about wrap ">
                         <GridBody />

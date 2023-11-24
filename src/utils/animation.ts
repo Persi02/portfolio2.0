@@ -70,107 +70,139 @@ const opacAnimation = (classname: string, point: string) => {
         }
     })
 }
-const pinAnimation = () => {
+const buttonScrollAnim = () => {
+    gsap.to('.btn-scroll', {
+        duration: 0.2,
+        rotate: 180,
 
-
-    gsap.to('.hero', {
-        duration: 8,
         scrollTrigger: {
-            trigger: '.hero',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 4,
-            pin: true,
-            pinSpacing: false,
-            markers: {
-                fontSize: '3rem'
-            }
-        }
-    })
-    gsap.to('.panel_about', {
-        duration: 8,
-        scrollTrigger: {
-            trigger: '.panel_about',
-            start: ' top',
-            end: 'bottom top',
-            scrub: 4,
-            pin: true,
-            pinSpacing: false,
-            markers: {
-                fontSize: '3rem'
-            }
-        }
-    })
-    gsap.to('.body_about', {
-        duration: 8,
-        scrollTrigger: {
-            trigger: '.body_about',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 4,
-            pin: true,
-            pinSpacing: false,
-            markers: {
-                fontSize: '3rem'
-            }
-        }
-    })
-    gsap.to('.panel_skills', {
-        duration: 8,
-        scrollTrigger: {
-            trigger: '.panel_skills',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 4,
-            pin: true,
-            pinSpacing: false,
-            markers: {
-                fontSize: '3rem'
-            }
-        }
-    })
-    gsap.to('.body_skills', {
-        duration: 8,
-        scrollTrigger: {
-            trigger: '.body_skills',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 4,
-            pin: true,
-            pinSpacing: false,
-            markers: {
-                fontSize: '3rem'
-            }
-        }
-    })
-    gsap.to('.panel_contact', {
-        duration: 8,
-        scrollTrigger: {
-            trigger: '.panel_skills',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 4,
-            pin: true,
-            pinSpacing: false,
-            markers: {
-                fontSize: '3rem'
-            }
-        }
-    })
-    gsap.to('.body_contact', {
-        duration: 8,
-        scrollTrigger: {
-            trigger: '.body_skills',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 4,
-            pin: true,
-            pinSpacing: false,
-            markers: {
-                fontSize: '3rem'
-            }
+            trigger: 'hr',
+            toggleActions: "play none none reverse",
+            // markers: {
+            //     fontSize: '3rem'
+            // }
         }
     })
 }
+const navAnimation = (header: any) => {
+    gsap.to(header, {
+        scrollTrigger: {
+            start: '10% bottom',
+            end: '10% bottom',
+            trigger: '.about',
+            onEnter() {
+                header.classList.remove('header');
+                header.classList.add('header_scroll');
+            },
+            onEnterBack() {
+                header.classList.remove('header_scroll');
+                header.classList.add('header');
+            }
+        }
+    });
 
-export { wordAnimation, wordAnimationLeft, wordAnimationRight, opacAnimation, pinAnimation }
+}
+// const pinAnimation = () => {
+
+
+//     gsap.to('.hero', {
+//         duration: 8,
+//         scrollTrigger: {
+//             trigger: '.hero',
+//             start: 'top top',
+//             end: 'bottom top',
+//             scrub: 4,
+//             pin: true,
+//             pinSpacing: false,
+//             markers: {
+//                 fontSize: '3rem'
+//             }
+//         }
+//     })
+//     gsap.to('.panel_about', {
+//         duration: 8,
+//         scrollTrigger: {
+//             trigger: '.panel_about',
+//             start: ' top',
+//             end: 'bottom top',
+//             scrub: 4,
+//             pin: true,
+//             pinSpacing: false,
+//             markers: {
+//                 fontSize: '3rem'
+//             }
+//         }
+//     })
+//     gsap.to('.body_about', {
+//         duration: 8,
+//         scrollTrigger: {
+//             trigger: '.body_about',
+//             start: 'top top',
+//             end: 'bottom top',
+//             scrub: 4,
+//             pin: true,
+//             pinSpacing: false,
+//             markers: {
+//                 fontSize: '3rem'
+//             }
+//         }
+//     })
+//     gsap.to('.panel_skills', {
+//         duration: 8,
+//         scrollTrigger: {
+//             trigger: '.panel_skills',
+//             start: 'top top',
+//             end: 'bottom top',
+//             scrub: 4,
+//             pin: true,
+//             pinSpacing: false,
+//             markers: {
+//                 fontSize: '3rem'
+//             }
+//         }
+//     })
+//     gsap.to('.body_skills', {
+//         duration: 8,
+//         scrollTrigger: {
+//             trigger: '.body_skills',
+//             start: 'top top',
+//             end: 'bottom top',
+//             scrub: 4,
+//             pin: true,
+//             pinSpacing: false,
+//             markers: {
+//                 fontSize: '3rem'
+//             }
+//         }
+//     })
+//     gsap.to('.panel_contact', {
+//         duration: 8,
+//         scrollTrigger: {
+//             trigger: '.panel_skills',
+//             start: 'top top',
+//             end: 'bottom top',
+//             scrub: 4,
+//             pin: true,
+//             pinSpacing: false,
+//             markers: {
+//                 fontSize: '3rem'
+//             }
+//         }
+//     })
+//     gsap.to('.body_contact', {
+//         duration: 8,
+//         scrollTrigger: {
+//             trigger: '.body_skills',
+//             start: 'top top',
+//             end: 'bottom top',
+//             scrub: 4,
+//             pin: true,
+//             pinSpacing: false,
+//             markers: {
+//                 fontSize: '3rem'
+//             }
+//         }
+//     })
+// }
+
+export { wordAnimation, wordAnimationLeft, wordAnimationRight, opacAnimation, buttonScrollAnim, navAnimation }
