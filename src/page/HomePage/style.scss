@@ -1,7 +1,6 @@
 //hero
 .hero {
     @apply w-full h-screen flex items-center justify-center relative;
-    background: var(--primary), #FFF;
     overflow-x: hidden;
 
     .work {
@@ -25,11 +24,18 @@
         gap: 10px;
         bottom: 3%;
         right: 16px;
+        z-index: 100;
+        mix-blend-mode: difference;
+
+        .btn-scroll2 {
+            display: none;
+        }
+
 
 
         p {
             font-size: 16px;
-            mix-blend-mode: difference;
+            color: white;
         }
     }
 

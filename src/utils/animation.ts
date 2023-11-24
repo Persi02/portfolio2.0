@@ -70,17 +70,36 @@ const opacAnimation = (classname: string, point: string) => {
         }
     })
 }
-const buttonScrollAnim = () => {
-    gsap.to('.btn-scroll', {
-        duration: 0.2,
+const buttonScrollDownAnim = () => {
+    gsap.to('.btn-scroll1', {
+        display: "none",
+        duration: 0,
         rotate: 180,
 
         scrollTrigger: {
-            trigger: 'hr',
-            toggleActions: "play none none reverse",
-            // markers: {
-            //     fontSize: '3rem'
-            // }
+            trigger: 'main',
+            start: "90% bottom",
+            end: "20% bottom",
+            toggleActions: "play none reverse none",
+            markers: {
+                fontSize: '3rem'
+            }
+        },
+
+    })
+}
+const buttonScrollUpAnim = () => {
+    gsap.to('.btn-scroll2', {
+        display: 'block',
+        duration: 0,
+        rotate: 180,
+
+        scrollTrigger: {
+            trigger: 'main',
+            start: "90% bottom",
+            end: "20% bottom",
+            toggleActions: "play none reverse none",
+
         }
     })
 }
@@ -205,4 +224,4 @@ const navAnimation = (header: any) => {
 //     })
 // }
 
-export { wordAnimation, wordAnimationLeft, wordAnimationRight, opacAnimation, buttonScrollAnim, navAnimation }
+export { wordAnimation, wordAnimationLeft, wordAnimationRight, opacAnimation, buttonScrollDownAnim, buttonScrollUpAnim, navAnimation }

@@ -71,6 +71,13 @@ h2 {
     line-height: normal;
 }
 
+.hero,
+.body_about,
+.body_skills,
+.body_contact {
+    background: white;
+}
+
 @screen sm {
     .wrap {
         padding: 0 30px;
@@ -139,10 +146,5 @@ h2 {
 
     }
 
-    .body_about,
-    .body_skills,
-    .body_contact {
-        background: var(--primary), #000;
-    }
 
 }

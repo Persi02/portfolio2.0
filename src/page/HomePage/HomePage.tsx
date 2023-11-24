@@ -3,7 +3,6 @@ import Header from '../../components/General/Header/Header';
 import './style.scss'
 import LogoIcons from '../../Icons/LogoIcons';
 import Button from '../../components/General/button/Button';
-import ScrollIcon from '../../Icons/ScrollIcon';
 import profil from '../../assets/image/profil.png'
 import GridBody from '../../components/Display/gridBody.tsx/GridBody';
 import SectionTitle from '../../components/Display/SectionTitle/SectionTitle';
@@ -27,13 +26,15 @@ import LinkedinIcon from '../../Icons/LinkedinIcon';
 import { TextField } from '@mui/material';
 import gsap, { Power3 } from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-import { wordAnimation, buttonScrollAnim, navAnimation } from '../../utils/animation';
+import { wordAnimation, buttonScrollDownAnim, buttonScrollUpAnim } from '../../utils/animation';
 
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import Text from '../../components/General/Text/Text';
 import { Link } from 'react-scroll';
 import { NavLink } from 'react-router-dom';
+import ScrollIconDown from '../../Icons/ScrollIcon';
+import ScrollIconUp from '../../Icons/ScrollIconUp';
 
 
 gsap.registerPlugin(ScrollTrigger)
@@ -76,15 +77,12 @@ function HomePage() {
         wordAnimation('.panel_contact .about_title', '.panel_contact')
         wordAnimation('.first_about h3', '.body_about')
         wordAnimation('.body_about p', '.body_about')
-        buttonScrollAnim()
+        buttonScrollUpAnim()
+        buttonScrollDownAnim()
 
         wordAnimation('.lieu', '.body_contact')
         wordAnimation('.sociaux', '.body_contact')
         wordAnimation('.form_contact', '.body_contact')
-        // navAnimation(header)
-
-
-
 
 
     }, [])
@@ -198,7 +196,19 @@ function HomePage() {
                     </div>
                     <div className='wrap_button-scroll'>
                         <p className='body_text'>Scroll</p>
-                        <ScrollIcon />
+                        <div>
+                            <Link className='nav-link' to='down'
+                                smooth={true}
+                                duration={500} >
+                                <ScrollIconDown />
+                            </Link>
+                            <Link className='nav-link' to='hero'
+                                smooth={true}
+                                duration={500} >
+                                <ScrollIconUp />
+                            </Link>
+
+                        </div>
                     </div>
                 </section>
 
@@ -277,7 +287,7 @@ function HomePage() {
 
                 <section className='contact' id="contact">
                     <SectionTitle text='Contact' className='panel_contact' />
-                    <div className="body_contact wrap test">
+                    <div className="body_contact wrap test" id='down'>
                         <div className="wrap_sociaux wrap">
                             <div className="lieu">
                                 <div>
@@ -335,7 +345,7 @@ function HomePage() {
                         </form>
                         <div className="hr">
                             <hr />
-                            <p>Portfolio@Pérsi2023</p>
+                            <p >Portfolio@Pérsi2023</p>
                         </div>
                     </div>
                 </section>

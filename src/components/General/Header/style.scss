@@ -34,6 +34,8 @@
      z-index: 100;
      transform: translateX(-50%);
      background-color: white;
+     width: 241px;
+     mix-blend-mode: difference;
 
 
      .menu-navigation {
@@ -57,6 +59,11 @@
      }
  }
 
+ @screen sm {
+     .header_scroll {
+         width: unset;
+     }
+ }
 
  @screen md {
      .menu-navigation {
