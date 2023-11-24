@@ -81,9 +81,7 @@ const buttonScrollDownAnim = () => {
             start: "90% bottom",
             end: "20% bottom",
             toggleActions: "play none reverse none",
-            markers: {
-                fontSize: '3rem'
-            }
+
         },
 
     })

@@ -35,6 +35,7 @@ import { Link } from 'react-scroll';
 import { NavLink } from 'react-router-dom';
 import ScrollIconDown from '../../Icons/ScrollIcon';
 import ScrollIconUp from '../../Icons/ScrollIconUp';
+// import CV from '../../assets/CV/CV.pdf'
 
 
 gsap.registerPlugin(ScrollTrigger)
@@ -188,7 +189,7 @@ function HomePage() {
                                 duration={500} >
                                 <Button text='Contact Me' className='btn-lg' />
                             </Link>
-                            <NavLink to='https://zaho.io/iam/andriamananandro-herinjaka-1691998604593'>
+                            <NavLink to='../../assets/CV/CV.pdf'>
                                 <Button text='Show CV' className='btn-lg' />
                             </NavLink>
 
