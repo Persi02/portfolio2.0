@@ -292,10 +292,22 @@ function HomePage() {
                             <div className="sociaux">
                                 <h3 className='second-h3'>Follow me on social media</h3>
                                 <div>
-                                    <FacebookIcon />
-                                    <TwitterIcon />
-                                    <GithubIcon />
-                                    <LinkedinIcon />
+                                    <NavLink to='https://www.facebook.com/hernjakaandri?locale=fr_FR'>
+                                        <FacebookIcon />
+                                    </NavLink>
+                                    <NavLink to='https://twitter.com/hernjaka1'>
+                                        <TwitterIcon />
+                                    </NavLink>
+                                    <NavLink to='https://github.com/Persi02'>
+                                        <GithubIcon />
+                                    </NavLink>
+                                    <NavLink to='https://www.linkedin.com/in/hernjaka-andriamananandro-b72122284/'>
+                                        <LinkedinIcon />
+                                    </NavLink>
+
+
+
+
                                 </div>
                             </div>
                         </div>
