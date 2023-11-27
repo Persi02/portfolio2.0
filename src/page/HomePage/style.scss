@@ -27,6 +27,10 @@
         z-index: 100;
         mix-blend-mode: difference;
 
+        .btn-scroll1 {
+            // background-color: red;
+        }
+
         .btn-scroll2 {
             display: none;
         }
@@ -431,4 +435,38 @@
 
 
 
+}
+
+
+
+
+.t1,
+.t2,
+.t3,
+.t4,
+.t5 {
+    width: 100%;
+    height: 100vh;
+    @apply flex items-center justify-center;
+    font-size: 5rem;
+}
+
+.t1 {
+    background-color: red;
+}
+
+.t2 {
+    background-color: white;
+}
+
+.t3 {
+    background-color: purple;
+}
+
+.t4 {
+    background-color: yellow;
+}
+
+.t5 {
+    background-color: violet;
 }

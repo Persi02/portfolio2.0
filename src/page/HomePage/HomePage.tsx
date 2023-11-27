@@ -78,8 +78,10 @@ function HomePage() {
         wordAnimation('.panel_contact .about_title', '.panel_contact')
         wordAnimation('.first_about h3', '.body_about')
         wordAnimation('.body_about p', '.body_about')
-        buttonScrollUpAnim()
-        buttonScrollDownAnim()
+        buttonScrollUpAnim('.btn-scroll2', 'main')
+        buttonScrollDownAnim('.btn-scroll1', 'main')
+        // pinAnimation()
+
 
         wordAnimation('.lieu', '.body_contact')
         wordAnimation('.sociaux', '.body_contact')
@@ -184,26 +186,26 @@ function HomePage() {
                     <div className="work">
                         <h1 className='h1' ref={el => title = el}><span className='developer'>Developer</span><span className='front'>Front end</span></h1>
                         <div className="wrap_btn-hero">
-                            <Link className='nav-link' to='contact'
+                            <Link to='contact'
                                 smooth={true}
                                 duration={500} >
                                 <Button text='Contact Me' className='btn-lg' />
                             </Link>
-                            <NavLink to='../../assets/CV/CV.pdf'>
-                                <Button text='Show CV' className='btn-lg' />
-                            </NavLink>
+                            <a download="CV" href={profil}>
+                                <Button text='Show CV' className='btn-lg btn-w' />
+                            </a>
 
                         </div>
                     </div>
                     <div className='wrap_button-scroll'>
                         <p className='body_text'>Scroll</p>
                         <div>
-                            <Link className='nav-link' to='down'
+                            <Link to='down'
                                 smooth={true}
                                 duration={500} >
                                 <ScrollIconDown />
                             </Link>
-                            <Link className='nav-link' to='hero'
+                            <Link to='hero'
                                 smooth={true}
                                 duration={500} >
                                 <ScrollIconUp />
@@ -350,7 +352,9 @@ function HomePage() {
                         </div>
                     </div>
                 </section>
+
             </main >
+
 
         </>
     )
