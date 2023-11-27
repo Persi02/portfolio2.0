@@ -12,9 +12,10 @@ const wordAnimation = (classname: string, point: string) => {
         duration: 1,
         scrollTrigger: {
             trigger: point,
-            start: 'top 70%',
-            end: 'top top',
-            toggleActions: 'play none none reverse'
+            start: '30% 70%',
+            end: '30% top',
+            toggleActions: 'play none none reverse',
+
         }
     })
 }
@@ -120,86 +121,5 @@ const navAnimation = (header: any) => {
     });
 
 }
-const pinAnimation = () => {
 
-
-    gsap.to('.hero', {
-        duration: 8,
-        scrollTrigger: {
-            trigger: '.hero',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 4,
-            pin: true,
-            pinSpacing: false
-        }
-    })
-    gsap.to('.panel_about', {
-        duration: 8,
-        scrollTrigger: {
-            trigger: '.panel_about',
-            start: ' top',
-            end: 'bottom top',
-            scrub: 4,
-            pin: true,
-            pinSpacing: false
-        }
-    })
-    gsap.to('.body_about', {
-        duration: 8,
-        scrollTrigger: {
-            trigger: '.body_about',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 4,
-            pin: true,
-            pinSpacing: false
-        }
-    })
-    gsap.to('.panel_skills', {
-        duration: 8,
-        scrollTrigger: {
-            trigger: '.panel_skills',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 4,
-            pin: true,
-            pinSpacing: false
-        }
-    })
-    gsap.to('.body_skills', {
-        duration: 8,
-        scrollTrigger: {
-            trigger: '.body_skills',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 4,
-            pin: true,
-            pinSpacing: false
-        }
-    })
-    gsap.to('.panel_contact', {
-        duration: 8,
-        scrollTrigger: {
-            trigger: '.panel_contact',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 4,
-            pin: true,
-            pinSpacing: false
-        }
-    })
-    gsap.to('.body_contact', {
-        duration: 8,
-        scrollTrigger: {
-            trigger: '.body_contact',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 4,
-            pin: true,
-            pinSpacing: false
-        }
-    })
-}
-
-export { wordAnimation, wordAnimationLeft, wordAnimationRight, opacAnimation, buttonScrollDownAnim, buttonScrollUpAnim, navAnimation, pinAnimation }
+export { wordAnimation, wordAnimationLeft, wordAnimationRight, opacAnimation, buttonScrollDownAnim, buttonScrollUpAnim, navAnimation }

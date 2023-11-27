@@ -80,13 +80,78 @@ function HomePage() {
         wordAnimation('.body_about p', '.body_about')
         buttonScrollUpAnim('.btn-scroll2', 'main')
         buttonScrollDownAnim('.btn-scroll1', 'main')
-        // pinAnimation()
-
-
         wordAnimation('.lieu', '.body_contact')
         wordAnimation('.sociaux', '.body_contact')
         wordAnimation('.form_contact', '.body_contact')
 
+
+    }, [])
+    useEffect(() => {
+        let ctx = gsap.context(() => {
+            gsap.to(".hero", {
+                scrollTrigger: {
+                    trigger: ".hero",
+                    start: "top top",
+                    pin: true,
+                    pinSpacing: false
+                }
+            });
+            gsap.to(".panel_about", {
+                scrollTrigger: {
+                    trigger: ".panel_about",
+                    start: "top top",
+                    pin: true,
+                    pinSpacing: false
+                }
+            });
+            gsap.to(".body_about", {
+                scrollTrigger: {
+                    trigger: ".body_about",
+                    start: "top top",
+                    pin: true,
+                    pinSpacing: false,
+
+                }
+            });
+            gsap.to(".panel_skills", {
+                scrollTrigger: {
+                    trigger: ".panel_skills",
+                    start: "top top",
+                    pin: true,
+                    pinSpacing: false,
+
+                }
+            });
+            gsap.to(".body_skills", {
+                scrollTrigger: {
+                    trigger: ".body_skills",
+                    start: "top top",
+                    pin: true,
+                    pinSpacing: false,
+
+                }
+            });
+            gsap.to(".panel_contact", {
+                scrollTrigger: {
+                    trigger: ".panel_contact",
+                    start: "top top",
+                    pin: true,
+                    pinSpacing: false,
+
+                }
+            });
+            gsap.to(".body_contact", {
+                scrollTrigger: {
+                    trigger: ".body_contact",
+                    start: "top top",
+                    pin: true,
+                    pinSpacing: false,
+
+                }
+            });
+
+        });
+        return () => ctx.revert();
 
     }, [])
 
