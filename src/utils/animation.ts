@@ -96,7 +96,7 @@ const buttonScrollUpAnim = (classname: string, point: string) => {
         duration: 0.01,
         scrollTrigger: {
             trigger: point,
-            start: '0% bottom',
+            start: '20% bottom',
             end: '90% bottom',
             toggleActions: 'none play none reverse'
         }
