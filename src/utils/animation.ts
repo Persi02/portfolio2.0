@@ -12,10 +12,9 @@ const wordAnimation = (classname: string, point: string) => {
         duration: 1,
         scrollTrigger: {
             trigger: point,
-            start: '30% 70%',
-            end: '30% top',
-            toggleActions: 'play none none reverse',
-
+            start: 'top 70%',
+            end: 'top top',
+            toggleActions: 'play none none reverse'
         }
     })
 }
@@ -29,8 +28,8 @@ const wordAnimationLeft = (classname: string, point: string) => {
         duration: 1,
         scrollTrigger: {
             trigger: point,
-            start: 'top 70%',
-            end: 'top top',
+            start: '30% 70%',
+            end: '30% top',
             toggleActions: 'play none none reverse'
         }
     })
@@ -71,7 +70,8 @@ const opacAnimation = (classname: string, point: string) => {
 const buttonScrollDownAnim = (classname: string, point: string) => {
     gsap.fromTo(classname, {
         rotate: 0,
-        display: 'block'
+        display: 'block',
+
 
     }, {
         rotate: 180,
@@ -96,7 +96,7 @@ const buttonScrollUpAnim = (classname: string, point: string) => {
         duration: 0.01,
         scrollTrigger: {
             trigger: point,
-            start: '20% bottom',
+            start: '0% bottom',
             end: '90% bottom',
             toggleActions: 'none play none reverse'
         }
@@ -121,5 +121,6 @@ const navAnimation = (header: any) => {
     });
 
 }
+
 
 export { wordAnimation, wordAnimationLeft, wordAnimationRight, opacAnimation, buttonScrollDownAnim, buttonScrollUpAnim, navAnimation }

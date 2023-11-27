@@ -1,4 +1,28 @@
 //hero
+.wrap_button-scroll {
+    @apply flex items-center flex-col fixed;
+    gap: 10px;
+    bottom: 3%;
+    right: 16px;
+    z-index: 100;
+    mix-blend-mode: difference;
+
+    .btn-scroll1 {
+        // background-color: red;
+    }
+
+    .btn-scroll2 {
+        display: none;
+    }
+
+
+
+    p {
+        font-size: 16px;
+        color: white;
+    }
+}
+
 .hero {
     @apply w-full h-screen flex items-center justify-center relative;
     overflow-x: hidden;
@@ -19,29 +43,6 @@
         }
     }
 
-    .wrap_button-scroll {
-        @apply flex items-center flex-col fixed;
-        gap: 10px;
-        bottom: 3%;
-        right: 16px;
-        z-index: 100;
-        mix-blend-mode: difference;
-
-        .btn-scroll1 {
-            // background-color: red;
-        }
-
-        .btn-scroll2 {
-            display: none;
-        }
-
-
-
-        p {
-            font-size: 16px;
-            color: white;
-        }
-    }
 
     h1 {
         .developer {
@@ -256,6 +257,10 @@
 }
 
 @screen lg {
+    .wrap_button-scroll {
+        right: 50px;
+    }
+
     .hero {
         .wrap_btn-hero {
             margin-top: 0;
@@ -265,9 +270,6 @@
             }
         }
 
-        .wrap_button-scroll {
-            right: 50px;
-        }
 
         .intro {
             &-name {
@@ -412,6 +414,12 @@
 }
 
 @screen 2xl {
+
+    .wrap_button-scroll {
+        bottom: 50px;
+        right: 60px;
+    }
+
     .hero {
         .wrap_btn-hero {
             margin-top: 0;
@@ -419,11 +427,6 @@
             button {
                 margin-bottom: 20px;
             }
-        }
-
-        .wrap_button-scroll {
-            bottom: 50px;
-            right: 60px;
         }
 
         .intro {
@@ -435,38 +438,4 @@
 
 
 
-}
-
-
-
-
-.t1,
-.t2,
-.t3,
-.t4,
-.t5 {
-    width: 100%;
-    height: 100vh;
-    @apply flex items-center justify-center;
-    font-size: 5rem;
-}
-
-.t1 {
-    background-color: red;
-}
-
-.t2 {
-    background-color: white;
-}
-
-.t3 {
-    background-color: purple;
-}
-
-.t4 {
-    background-color: yellow;
-}
-
-.t5 {
-    background-color: violet;
 }

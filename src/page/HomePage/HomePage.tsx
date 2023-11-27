@@ -73,6 +73,7 @@ function HomePage() {
 
     }, [tl])
     useEffect(() => {
+
         wordAnimation('.panel_about .about_title', '.panel_about')
         wordAnimation('.panel_skills .about_title', '.panel_skills')
         wordAnimation('.panel_contact .about_title', '.panel_contact')
@@ -85,74 +86,25 @@ function HomePage() {
         wordAnimation('.form_contact', '.body_contact')
 
 
+
+
     }, [])
     useEffect(() => {
         let ctx = gsap.context(() => {
-            gsap.to(".hero", {
-                scrollTrigger: {
-                    trigger: ".hero",
-                    start: "top top",
+
+            let panels: any = gsap.utils.toArray(".panel");
+            panels.map((panel: any) => ScrollTrigger.create({ trigger: panel, start: "top top" }));
+            panels.forEach((panel: any, i: number) => {
+                ScrollTrigger.create({
+                    trigger: panel,
+                    start: () => panel.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
                     pin: true,
                     pinSpacing: false
-                }
-            });
-            gsap.to(".panel_about", {
-                scrollTrigger: {
-                    trigger: ".panel_about",
-                    start: "top top",
-                    pin: true,
-                    pinSpacing: false
-                }
-            });
-            gsap.to(".body_about", {
-                scrollTrigger: {
-                    trigger: ".body_about",
-                    start: "top top",
-                    pin: true,
-                    pinSpacing: false,
-
-                }
-            });
-            gsap.to(".panel_skills", {
-                scrollTrigger: {
-                    trigger: ".panel_skills",
-                    start: "top top",
-                    pin: true,
-                    pinSpacing: false,
-
-                }
-            });
-            gsap.to(".body_skills", {
-                scrollTrigger: {
-                    trigger: ".body_skills",
-                    start: "top top",
-                    pin: true,
-                    pinSpacing: false,
-
-                }
-            });
-            gsap.to(".panel_contact", {
-                scrollTrigger: {
-                    trigger: ".panel_contact",
-                    start: "top top",
-                    pin: true,
-                    pinSpacing: false,
-
-                }
-            });
-            gsap.to(".body_contact", {
-                scrollTrigger: {
-                    trigger: ".body_contact",
-                    start: "top top",
-                    pin: true,
-                    pinSpacing: false,
-
-                }
+                });
             });
 
         });
         return () => ctx.revert();
-
     }, [])
 
     const handleChangeName = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -239,9 +191,26 @@ function HomePage() {
 
             <main>
                 <Header className=' header' />
-                <section className='hero ' id='hero'>
+                <div className='wrap_button-scroll'>
+                    <p className='body_text'>Scroll</p>
+                    <div>
+                        <Link to='down'
+                            smooth={true}
+                            duration={500} >
+                            <ScrollIconDown />
+                        </Link>
+                        <Link to='hero'
+                            smooth={true}
+                            duration={500} >
+                            <ScrollIconUp />
+                        </Link>
+
+                    </div>
+                </div>
+
+                <section className='hero panel ' id='hero'>
                     <GridHero />
-                    <div className='intro wrap'>
+                    <div className='intro wrap' id='intro'>
                         <div className='intro-name'>
                             <h3 className='second-h3'>Persi</h3>
                             <Text tag='p' text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sequi saepe maxime' color="#817474" className='body_text' />
@@ -262,27 +231,12 @@ function HomePage() {
 
                         </div>
                     </div>
-                    <div className='wrap_button-scroll'>
-                        <p className='body_text'>Scroll</p>
-                        <div>
-                            <Link to='down'
-                                smooth={true}
-                                duration={500} >
-                                <ScrollIconDown />
-                            </Link>
-                            <Link to='hero'
-                                smooth={true}
-                                duration={500} >
-                                <ScrollIconUp />
-                            </Link>
 
-                        </div>
-                    </div>
                 </section>
 
                 <section className='about' ref={about} id="about">
-                    <SectionTitle text='About' className='panel_about' />
-                    <div className="body_about wrap ">
+                    <SectionTitle text='About' className='panel panel_about' />
+                    <div className="body_about wrap panel ">
                         <GridBody />
                         <div className="first_about">
                             <h3 className='first-h3'>Hello I am Pérsi</h3>
@@ -307,9 +261,9 @@ function HomePage() {
                         </div>
                     </div>
                 </section>
-                <section className='myskills' id='mySkills'>
-                    <SectionTitle text='My Skills' className='panel_skills' />
-                    <div className="body_skills  wrap test">
+                <section className='myskills ' id='mySkills'>
+                    <SectionTitle text='My Skills' className='panel panel_skills' />
+                    <div className="body_skills  wrap panel">
                         <GridBody />
                         <div className="first_skills">
                             <div className="design">
@@ -354,8 +308,8 @@ function HomePage() {
 
 
                 <section className='contact' id="contact">
-                    <SectionTitle text='Contact' className='panel_contact' />
-                    <div className="body_contact wrap test" id='down'>
+                    <SectionTitle text='Contact' className='panel panel_contact' />
+                    <div className="body_contact wrap panel" id='down'>
                         <div className="wrap_sociaux wrap">
                             <div className="lieu">
                                 <div>

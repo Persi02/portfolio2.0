@@ -32,6 +32,7 @@ function Header({ className }: Props) {
                     smooth={true}
                     duration={500} >Contact</Link>
             </nav>
+
         </header>
     )
 }
