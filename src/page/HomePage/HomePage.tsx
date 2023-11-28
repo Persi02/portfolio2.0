@@ -56,8 +56,8 @@ function HomePage() {
     const [name_i, setName] = useState("");
     const [subject_i, setSubjet] = useState("");
     const [message_i, setMessage] = useState("");
-    let title: any = useRef(null)
-    let about: any = useRef(null);
+    let title = useRef<HTMLHeadingElement | null>(null)
+    let about = useRef<HTMLDivElement | null>(null);
 
 
 
@@ -67,9 +67,12 @@ function HomePage() {
         gsap.fromTo('body', { height: '100vh', overflowY: 'hidden' }, { height: 'auto', overflowY: 'auto', delay: 5 })
     }, [])
     useEffect(() => {
-        const title1 = title.firstElementChild;
-        const title2 = title.lastElementChild;
-        tl.fromTo(title1, { x: -400, opacity: 0, ease: Power3.easeOut }, { x: 0, opacity: 1, ease: Power3.easeOut, duration: 1.5 }, 5).fromTo(title2, { x: 400, opacity: 0, ease: Power3.easeOut }, { x: 0, opacity: 1, duration: 1.3 }, 5).fromTo('.intro-name', { y: 44, opacity: 0 }, { y: 0, opacity: 1 }, 5).fromTo('.logo', { x: 300, opacity: 0 }, { x: 0, opacity: 1 }, 5).fromTo(['.header', '.wrap_btn-hero', '.wrap_button-scroll'], { opacity: 0 }, { opacity: 1, duration: 1 }, 5)
+        if (title.current) {
+            const title1 = title.current?.firstElementChild;
+            const title2 = title.current?.lastElementChild;
+            tl.fromTo(title1, { x: -400, opacity: 0, ease: Power3.easeOut }, { x: 0, opacity: 1, ease: Power3.easeOut, duration: 1.5 }, 5).fromTo(title2, { x: 400, opacity: 0, ease: Power3.easeOut }, { x: 0, opacity: 1, duration: 1.3 }, 5).fromTo('.intro-name', { y: 44, opacity: 0 }, { y: 0, opacity: 1 }, 5).fromTo('.logo', { x: 300, opacity: 0 }, { x: 0, opacity: 1 }, 5).fromTo(['.header', '.wrap_btn-hero', '.wrap_button-scroll'], { opacity: 0 }, { opacity: 1, duration: 1 }, 5)
+        }
+
 
 
     }, [tl])
@@ -93,9 +96,8 @@ function HomePage() {
     useEffect(() => {
         let ctx = gsap.context(() => {
 
-            let panels: any = gsap.utils.toArray(".panel");
-            panels.map((panel: any) => ScrollTrigger.create({ trigger: panel, start: "top top" }));
-            panels.forEach((panel: any, i: number) => {
+            const panels = document.querySelectorAll<HTMLElement>('.panel');
+            panels.forEach((panel) => {
                 ScrollTrigger.create({
                     trigger: panel,
                     start: () => panel.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
@@ -219,7 +221,7 @@ function HomePage() {
                         <LogoIcons className='logo' />
                     </div>
                     <div className="work">
-                        <h1 className='h1' ref={el => title = el}><span className='developer'>Developer</span><span className='front'>Front end</span></h1>
+                        <h1 className='h1' ref={title}><span className='developer'>Developer</span><span className='front'>Front end</span></h1>
                         <div className="wrap_btn-hero">
                             <Link to='down'
                                 smooth={true}

@@ -103,19 +103,25 @@ const buttonScrollUpAnim = (classname: string, point: string) => {
     })
 }
 
-const navAnimation = (header: any) => {
+const navAnimation = (header: HTMLElement | null) => {
     gsap.to(header, {
         scrollTrigger: {
             start: '10% bottom',
             end: '10% bottom',
             trigger: '.about',
             onEnter() {
-                header.classList.remove('header');
-                header.classList.add('header_scroll');
+                if (header) {
+                    header.classList.remove('header');
+                    header.classList.add('header_scroll');
+                }
+
             },
             onEnterBack() {
-                header.classList.remove('header_scroll');
-                header.classList.add('header');
+                if (header) {
+                    header.classList.remove('header_scroll');
+                    header.classList.add('header');
+                }
+
             }
         }
     });

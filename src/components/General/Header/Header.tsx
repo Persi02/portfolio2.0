@@ -11,13 +11,13 @@ interface Props {
 
 function Header({ className }: Props) {
 
-    let header: any = useRef(null);
+    let header = useRef<HTMLElement | null>(null);
 
     useEffect(() => {
-        navAnimation(header);
+        navAnimation(header.current);
     }, [])
     return (
-        <header ref={el => header = el} className={`wrap ${className} `}>
+        <header ref={header} className={`wrap ${className} `}>
             <nav className='menu-navigation'>
                 <Link className='nav-link' to="hero"
                     smooth={true}
