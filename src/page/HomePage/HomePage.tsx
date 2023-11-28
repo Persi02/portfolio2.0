@@ -27,7 +27,7 @@ import { TextField } from '@mui/material';
 import gsap, { Power3 } from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { wordAnimation, buttonScrollDownAnim, buttonScrollUpAnim } from '../../utils/animation';
-
+// import Cv from '../../assets/image/'
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import Text from '../../components/General/Text/Text';
@@ -35,7 +35,8 @@ import { Link } from 'react-scroll';
 import { NavLink } from 'react-router-dom';
 import ScrollIconDown from '../../Icons/ScrollIcon';
 import ScrollIconUp from '../../Icons/ScrollIconUp';
-// import CV from '../../assets/CV/CV.pdf'
+
+
 
 
 gsap.registerPlugin(ScrollTrigger)
@@ -208,7 +209,7 @@ function HomePage() {
                     </div>
                 </div>
 
-                <section className='hero panel ' id='hero'>
+                <section className='hero' id='hero'>
                     <GridHero />
                     <div className='intro wrap' id='intro'>
                         <div className='intro-name'>
@@ -220,14 +221,14 @@ function HomePage() {
                     <div className="work">
                         <h1 className='h1' ref={el => title = el}><span className='developer'>Developer</span><span className='front'>Front end</span></h1>
                         <div className="wrap_btn-hero">
-                            <Link to='contact'
+                            <Link to='down'
                                 smooth={true}
                                 duration={500} >
                                 <Button text='Contact Me' className='btn-lg' />
                             </Link>
-                            <a download="CV" href={profil}>
+                            <NavLink to='../../assets/CV/ioio.pdf' target='_blank'>
                                 <Button text='Show CV' className='btn-lg btn-w' />
-                            </a>
+                            </NavLink>
 
                         </div>
                     </div>
@@ -313,15 +314,18 @@ function HomePage() {
                         <div className="wrap_sociaux wrap">
                             <div className="lieu">
                                 <div>
-                                    <LieuIcon />
+                                    <div className="icon_lieu"><LieuIcon /></div>
+
                                     <p className='body_text'>Location  &nbsp;&nbsp;&nbsp;&nbsp;: Antananarivo/Madagascar</p>
                                 </div>
                                 <div>
-                                    <EmailIcon />
+                                    <div className="icon_lieu"><EmailIcon /></div>
+
                                     <p className='body_text'>Email  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:  andriamananandroh@gmail.com</p>
                                 </div>
                                 <div>
-                                    <PhoneIcon />
+                                    <div className="icon_lieu"><PhoneIcon /></div>
+
                                     <p className='body_text'>Phone &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : +261346810380</p>
                                 </div>
 

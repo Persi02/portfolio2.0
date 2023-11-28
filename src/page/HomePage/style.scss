@@ -159,6 +159,11 @@
 .lieu {
     @apply flex flex-col gap-3 mb-5;
 
+    .icon_lieu {
+        height: 33px;
+        width: 33px;
+    }
+
     div {
         @apply flex items-center gap-3;
 
