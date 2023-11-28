@@ -61,7 +61,6 @@ function HomePage() {
 
 
 
-
     let tl = gsap.timeline();
 
     useEffect(() => {
