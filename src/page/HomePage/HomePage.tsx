@@ -35,6 +35,7 @@ import { Link } from 'react-scroll';
 import { NavLink } from 'react-router-dom';
 import ScrollIconDown from '../../Icons/ScrollIcon';
 import ScrollIconUp from '../../Icons/ScrollIconUp';
+import { cursorAnim } from '../../utils/cursor';
 
 const CV = require('../../assets/CV/CV.pdf')
 
@@ -88,6 +89,8 @@ function HomePage() {
         wordAnimation('.lieu', '.body_contact')
         wordAnimation('.sociaux', '.body_contact')
         wordAnimation('.form_contact', '.body_contact')
+        cursorAnim()
+        // htmlElementHover()
 
 
 
@@ -210,6 +213,8 @@ function HomePage() {
 
                     </div>
                 </div>
+                <div className="cursor-dot" data-cursor-dot />
+                <div className="cursor-outline" data-cursor-outline />
 
                 <section className='hero' id='hero'>
                     <GridHero />
