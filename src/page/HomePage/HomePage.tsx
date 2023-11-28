@@ -27,7 +27,7 @@ import { TextField } from '@mui/material';
 import gsap, { Power3 } from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { wordAnimation, buttonScrollDownAnim, buttonScrollUpAnim } from '../../utils/animation';
-// import Cv from '../../assets/image/'
+
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import Text from '../../components/General/Text/Text';
@@ -36,6 +36,7 @@ import { NavLink } from 'react-router-dom';
 import ScrollIconDown from '../../Icons/ScrollIcon';
 import ScrollIconUp from '../../Icons/ScrollIconUp';
 
+const CV = require('../../assets/CV/CV.pdf')
 
 
 
@@ -226,7 +227,7 @@ function HomePage() {
                                 duration={500} >
                                 <Button text='Contact Me' className='btn-lg' />
                             </Link>
-                            <NavLink to='../../assets/CV/ioio.pdf' target='_blank'>
+                            <NavLink to={CV} target='_blank'>
                                 <Button text='Show CV' className='btn-lg btn-w' />
                             </NavLink>
 
