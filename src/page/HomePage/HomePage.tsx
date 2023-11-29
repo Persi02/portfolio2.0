@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Header from '../../components/General/Header/Header';
 import './style.scss'
 import LogoIcons from '../../Icons/LogoIcons';
@@ -23,19 +23,16 @@ import FacebookIcon from '../../Icons/FacebookIcon';
 import TwitterIcon from '../../Icons/TwitterIcon';
 import GithubIcon from '../../Icons/GithubIcon';
 import LinkedinIcon from '../../Icons/LinkedinIcon';
-import { TextField } from '@mui/material';
 import gsap, { Power3 } from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { wordAnimation, buttonScrollDownAnim, buttonScrollUpAnim } from '../../utils/animation';
-
-import axios from 'axios';
-import toast from 'react-hot-toast';
 import Text from '../../components/General/Text/Text';
 import { Link } from 'react-scroll';
 import { NavLink } from 'react-router-dom';
 import ScrollIconDown from '../../Icons/ScrollIcon';
 import ScrollIconUp from '../../Icons/ScrollIconUp';
 import { cursorAnim } from '../../utils/cursor';
+import Form from '../../components/Display/Form/Form';
 
 const CV = require('../../assets/CV/CV.pdf')
 
@@ -43,20 +40,10 @@ const CV = require('../../assets/CV/CV.pdf')
 
 gsap.registerPlugin(ScrollTrigger)
 
-interface Iuser {
-    name?: string,
-    email?: string,
-    message?: string,
-    subject?: string
-}
 
 
 function HomePage() {
-    const [user, setUser] = useState<Iuser>({});
-    const [email_i, setEmail] = useState("");
-    const [name_i, setName] = useState("");
-    const [subject_i, setSubjet] = useState("");
-    const [message_i, setMessage] = useState("");
+
     let title = useRef<HTMLHeadingElement | null>(null)
     let about = useRef<HTMLDivElement | null>(null);
 
@@ -64,10 +51,10 @@ function HomePage() {
 
     let tl = gsap.timeline();
 
+
     useEffect(() => {
-        gsap.fromTo('body', { height: '100vh', overflowY: 'hidden' }, { height: 'auto', overflowY: 'auto', delay: 5 })
-    }, [])
-    useEffect(() => {
+
+
         if (title.current) {
             const title1 = title.current?.firstElementChild;
             const title2 = title.current?.lastElementChild;
@@ -90,7 +77,6 @@ function HomePage() {
         wordAnimation('.sociaux', '.body_contact')
         wordAnimation('.form_contact', '.body_contact')
         cursorAnim()
-        // htmlElementHover()
 
 
 
@@ -113,85 +99,7 @@ function HomePage() {
         return () => ctx.revert();
     }, [])
 
-    const handleChangeName = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setUser(
-            {
-                ...user,
-                [name]: value
-            }
-        )
-        setName(value)
-    }
-    const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setUser(
-            {
-                ...user,
-                [name]: value
-            }
-        )
-        setEmail(value)
-    }
-    const handleChangeSubject = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setUser(
-            {
-                ...user,
-                [name]: value
-            }
-        )
-        setSubjet(value)
-    }
-    const handleChangeMessage = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setUser(
-            {
-                ...user,
-                [name]: value
-            }
-        )
-        setMessage(value)
-    }
-    const serviceId: string = 'service_6xw6uo8'
-    const templateId: string = 'template_5p1tudh'
-    const publicKey: string = '6pMN3V5chFWqYFJTd'
 
-    const data = {
-        service_id: serviceId,
-        template_id: templateId,
-        user_id: publicKey,
-        template_params: {
-            ...user
-        }
-
-    }
-
-
-    const login = async (e: { preventDefault: () => void; }) => {
-        e.preventDefault()
-        if (!user.email || !user.name || !user.subject || !user.message) {
-            toast.error("veullez remplir tous les champs")
-        }
-        else {
-            try {
-                await axios.post("https://api.emailjs.com/api/v1.0/email/send", data);
-
-                setUser({})
-                setEmail('')
-                setMessage('')
-                setName('')
-                setSubjet('')
-
-                toast.success("Envoyé")
-
-            } catch (error) {
-                toast.error("information incorrect")
-                console.error(error)
-            }
-        }
-
-    }
     return (
         <>
 
@@ -361,21 +269,7 @@ function HomePage() {
                                 </div>
                             </div>
                         </div>
-                        <form action="" className='form_contact'>
-                            <TextField label="Your Name" variant="standard" onChange={handleChangeName} name='name' fullWidth value={name_i} />
-                            <TextField label="Your Email" variant="standard" onChange={handleChangeEmail} name='email' fullWidth value={email_i} />
-                            <TextField label="Your Subject" variant="standard" fullWidth name='subject' onChange={handleChangeSubject} value={subject_i} />
-                            <TextField
-                                label="Your message"
-                                multiline
-                                rows={5}
-                                variant="standard"
-                                fullWidth name='message' onChange={handleChangeMessage} value={message_i}
-                            />
-                            <div className='wrap-button-form'>
-                                <Button postUser={login} text='Send' className='btn-xl' />
-                            </div>
-                        </form>
+                        <Form />
                         <div className="hr">
                             <hr />
                             <p >Portfolio@Pérsi2023</p>

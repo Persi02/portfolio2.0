@@ -7,6 +7,7 @@ const cursorAnim = () => {
     const btn = document.querySelectorAll<HTMLElement>("button");
     const secondTitle = document.querySelectorAll<HTMLElement>("h2");
 
+
     window.addEventListener('mousemove', function (e) {
         const posX = e.clientX;
         const posY = e.clientY;
@@ -29,6 +30,8 @@ const cursorAnim = () => {
                 if (cursorDot) {
                     cursorDot.style.width = '50px'
                     cursorDot.style.height = `50px`
+
+
                 }
 
             })
@@ -103,8 +106,5 @@ const cursorAnim = () => {
     }
 
 }
-const htmlElementHover = () => {
 
-
-}
 export { cursorAnim }
