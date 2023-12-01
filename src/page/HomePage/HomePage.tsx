@@ -34,7 +34,6 @@ import ScrollIconUp from '../../Icons/ScrollIconUp';
 import { cursorAnim } from '../../utils/cursor';
 import Form from '../../components/Display/Form/Form';
 import { ScrollToTop } from '../../utils/ScrollToTop';
-
 const CV = require('../../assets/CV/CV.pdf')
 
 
@@ -52,6 +51,9 @@ function HomePage() {
 
     let tl = gsap.timeline();
 
+    useEffect(() => {
+        gsap.fromTo('body', { height: '100vh', overflowY: 'hidden' }, { height: 'auto', overflowY: 'auto', delay: 5 })
+    }, [])
     useEffect(() => {
         gsap.fromTo('body', { height: '100vh', overflowY: 'hidden' }, { height: 'auto', overflowY: 'auto', delay: 5 })
     }, [])
