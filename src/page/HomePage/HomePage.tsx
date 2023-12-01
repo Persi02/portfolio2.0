@@ -33,7 +33,6 @@ import ScrollIconDown from '../../Icons/ScrollIcon';
 import ScrollIconUp from '../../Icons/ScrollIconUp';
 import { cursorAnim } from '../../utils/cursor';
 import Form from '../../components/Display/Form/Form';
-
 const CV = require('../../assets/CV/CV.pdf')
 
 
@@ -51,10 +50,10 @@ function HomePage() {
 
     let tl = gsap.timeline();
 
-
     useEffect(() => {
-
-
+        gsap.fromTo('body', { height: '100vh', overflowY: 'hidden' }, { height: 'auto', overflowY: 'auto', delay: 5 })
+    }, [])
+    useEffect(() => {
         if (title.current) {
             const title1 = title.current?.firstElementChild;
             const title2 = title.current?.lastElementChild;
@@ -77,7 +76,6 @@ function HomePage() {
         wordAnimation('.sociaux', '.body_contact')
         wordAnimation('.form_contact', '.body_contact')
         cursorAnim()
-
 
 
 
