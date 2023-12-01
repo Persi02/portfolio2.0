@@ -33,7 +33,7 @@ import ScrollIconDown from '../../Icons/ScrollIcon';
 import ScrollIconUp from '../../Icons/ScrollIconUp';
 import { cursorAnim } from '../../utils/cursor';
 import Form from '../../components/Display/Form/Form';
-import { ScrollToTop } from '../../utils/ScrollToTop';
+// import { ScrollToTop } from '../../utils/ScrollToTop';
 const CV = require('../../assets/CV/CV.pdf')
 
 
@@ -81,7 +81,7 @@ function HomePage() {
         wordAnimation('.form_contact', '.body_contact')
         cursorAnim()
         // htmlElementHover()
-        ScrollToTop()
+        //  ScrollToTop()
 
 
     }, [])
