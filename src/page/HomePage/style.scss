@@ -1,5 +1,5 @@
 .cursor-dot {
-
+    display: none;
     width: 30px;
     height: 30px;
     background-color: white;
@@ -8,10 +8,19 @@
 }
 
 .cursor-outline {
+    display: none;
     width: 7px;
     height: 7px;
     background-color: #FFF;
 
+}
+
+@screen sm {
+
+    .cursor-outline,
+    .cursor-dot {
+        display: block;
+    }
 }
 
 .cursor-dot,

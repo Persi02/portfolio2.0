@@ -5,10 +5,10 @@
 }
 
 .btn-lg {
-    padding: 8px;
+    padding: 8px 12px;
     background: var(--secondary);
     color: #FFF;
-    font-size: 16px;
+    font-size: 14px;
     font-family: 'Roboto', sans-serif;
     font-weight: bold
 }
@@ -28,11 +28,12 @@
 
 @screen md {
     .btn-w {
-        @apply px-2;
+        padding: 8px 12px;
     }
 }
 
 @screen 2xl {
+
     .btn-lg {
         padding: 12px;
         font-size: 20px;
